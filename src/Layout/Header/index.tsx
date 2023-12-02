@@ -5,13 +5,12 @@ import { style } from "./data"
 
 const Header=()=>{
   
-  
   return(
     <>
     <Nav>
       <Title>NavBar</Title>
       <NavUl>
-        <NavLi><NavLink to="/" style={style}>首頁</NavLink></NavLi>
+        <NavLi><NavLink to="/" style={style}>Home</NavLink></NavLi>
         <NavLi><NavLink to="/about" style={style}>About</NavLink></NavLi>
         <NavLi><NavLink to="/tour" style={style}>Tour</NavLink></NavLi>
       </NavUl>

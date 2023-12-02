@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink as RouterNavLink } from 'react-router-dom';
+
 
 export interface StyleProps {
   isActive: boolean;
@@ -24,13 +24,6 @@ export const NavUl=styled.ul`
 `;
 
 export const NavLi=styled.li`
-  
-  
-  
+  font-weight: bold;
 `;
 
-export const StyledNavLink = styled(RouterNavLink)<StyleProps>`
-  font-size: 20px;
-  text-decoration: none;
-  color: ${({ isActive }) => (isActive ? 'blue' : 'black')};
-`;
