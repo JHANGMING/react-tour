@@ -24,16 +24,22 @@ export const Carditem=styled.li`
   border-radius: 10px;
   width: 350px;
   cursor: pointer;
+  overflow: hidden;
 `
 export const Cardimg=styled.img`
   object-fit: cover;
   border-radius: 10px;
   width: 100%;
   height: 200px;
+  
+  &:hover{
+    transform: scale(1.2);
+    transition: 0.5s; 
+  }
 `
 export const CardTitle=styled.h3`
   font-size: 24px;
   text-align: center;
   color:gray;
-  padding: 10px 0px;
+  padding: 30px 0 20px 0; 
 `

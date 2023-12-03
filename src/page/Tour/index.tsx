@@ -1,21 +1,22 @@
 import { Outlet } from "react-router-dom"
 import { Aside, Input, Main, Session, SubTitle, Wrapper } from "./styled"
 import {  TourProvider } from "../../Tourdata/TodoContext"
-import Select from "../Select"
-import { useGetData } from "./data"
-import { useEffect, useState } from "react"
+import Select from "../../components/Select"
+import { DataItem, useGetData } from "./data"
+import { ChangeEvent, useEffect, useState } from "react"
+import Loading from "../../components/Loading"
 
 
 const Tour=()=>{
-  const tourData=useGetData()
-  const [selectList,setSelectList]=useState(null)
-  const [filterData,setFilterData]=useState([])
-  const [area,setArea]=useState("")
-  const [isSelect,setIsSelect]=useState(false)
+  const { data: tourData, isLoading } = useGetData();
+  const [selectList,setSelectList]=useState<string[]>([])
+  const [filterData,setFilterData]=useState<DataItem[]>([])
+  const [area,setArea]=useState<string>("")
+  const [isSelect,setIsSelect]=useState<boolean>(false)
+
   useEffect(()=>{
+    
     if(tourData){
-      console.log("資料讀取完畢");
-      
       const newdata=tourData.map((item)=>{
         const {Add}=item
         const regex = /([\u4e00-\u9fa5]+?)區/;
@@ -26,7 +27,6 @@ const Tour=()=>{
       const sortd= newdata.filter(
       (item, index) => newdata.indexOf(item) === index
     );
-
       setSelectList(sortd); 
     }
   },[tourData])
@@ -35,19 +35,20 @@ const Tour=()=>{
     if(area){
       console.log("change",area);
       setFilterData(tourData.filter((item)=>item.Add.includes(area)))
-      
-      
       setIsSelect(true)
     }
   },[area])
 
-  const inputHandler=(e)=>{
+  const inputHandler=(e:ChangeEvent<HTMLInputElement>)=>{
     const {value}=e.target
     if(!value)return
     setFilterData(tourData.filter((item)=>item.Name.includes(value)))
+    setArea("")
   }
   
   return(
+    <>
+    { isLoading &&  <Loading/>}
     <Wrapper>
     <TourProvider>
       <Aside>
@@ -65,6 +66,7 @@ const Tour=()=>{
       </Main>
     </TourProvider>
     </Wrapper>
+    </>
   )
 }
 

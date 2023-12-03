@@ -1,12 +1,12 @@
 import { Routes ,Route} from "react-router-dom"
-import Home from "./components/Home"
-import About from "./components/About"
-import Tour from "./components/Tour"
+import Home from "./page/Home"
+import About from "./page/About"
+import Tour from "./page/Tour"
 import Header from "./Layout/Header"
 import Footer from "./Layout/Footer"
 import { Container, Wrapper } from "./Layout/styled"
-import { Tourlist } from "./components/Tour/Tourlist"
-import TourDetail from "./components/Tour/TourDetail"
+import { Tourlist } from "./page/Tour/Tourlist"
+import TourDetail from "./page/Tour/TourDetail"
 
 
 

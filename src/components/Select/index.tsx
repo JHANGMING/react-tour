@@ -1,24 +1,28 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { StyledSelect } from "./styled";
+import { ChangeEvent, useState } from "react";
+interface SelectProps {
+  selectList: string[];
+  setArea: (area: string) => void;
+}
 
-
-const Select=({selectList,setArea})=>{
+const Select=({selectList,setArea}:SelectProps)=>{
   const {Id}=useParams()
   const navigate=useNavigate();
-  
-  const selecthandler=(e)=>{
-    if(Id){
-      navigate(-1)
-      setArea(e.target.value);
+  const [selectValue, setSelectValue] = useState<string>("");
+  const selecthandler=(e:ChangeEvent<HTMLSelectElement>)=>{
+    const value = e.target.value;
+    if (Id) {
+      navigate(-1);
     }
-    setArea(e.target.value);
-    
+    setArea(value);
+    setSelectValue(value)
   }
   return(
-    <StyledSelect onChange={selecthandler}>
-      <option value="">請選擇景點</option>
-      {selectList?.map((item, index) => (
-        <option key={index} value={item.value}>
+    <StyledSelect value={selectValue} onChange={selecthandler} >
+      <option value="" disabled>請選擇景點</option>
+      {selectList?.map((item:string) => (
+        <option key={item} value={item}>
           {item}
         </option>
       ))}

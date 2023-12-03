@@ -1,14 +1,15 @@
-import { NavLink, useNavigate, useOutletContext } from "react-router-dom"
+import { useNavigate, useOutletContext } from "react-router-dom"
 import { Imgkaohsiung } from "../../../util/Img"
 import { Title } from "../styled"
 import { Card, Img,Carditem, Cardimg, CardTitle } from "./styled"
+import { OutletContextType } from "./data"
 
 export const Tourlist=()=>{
-  const {isSelect,area,filterData}=useOutletContext()
+  const {isSelect,area,filterData}=useOutletContext<OutletContextType>()
   
   console.log("list",filterData);
   const navigate=useNavigate();
-  const cardhandler=(id)=>{
+  const cardhandler=(id: number | string)=>{
     console.log(id);
     navigate(`/tour/${id}`)
   }
