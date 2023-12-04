@@ -1,6 +1,15 @@
 import styled from "styled-components"
 
+export const Wrapper=styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
+export const ImgWrapper=styled.div`
+  display: flex;
+  gap: 40px;
+`;
 
 export const Img=styled.img`
   width:300px;
@@ -28,7 +37,7 @@ export const Carditem=styled.li`
 `
 export const Cardimg=styled.img`
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   width: 100%;
   height: 200px;
   

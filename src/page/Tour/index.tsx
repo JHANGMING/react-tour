@@ -1,10 +1,10 @@
-import { Outlet } from "react-router-dom"
-import { Aside, Input, Main, Session, SubTitle, Wrapper } from "./styled"
-import {  TourProvider } from "../../Tourdata/TodoContext"
-import Select from "../../components/Select"
+import { Outlet} from "react-router-dom"
+import { Aside, Main, Wrapper } from "./styled"
+import Inputs from "../../components/Inputs"
 import { DataItem, useGetData } from "./data"
-import { ChangeEvent, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Loading from "../../components/Loading"
+import Selector from "../../components/Selector"
 
 
 const Tour=()=>{
@@ -13,9 +13,7 @@ const Tour=()=>{
   const [filterData,setFilterData]=useState<DataItem[]>([])
   const [area,setArea]=useState<string>("")
   const [isSelect,setIsSelect]=useState<boolean>(false)
-
   useEffect(()=>{
-    
     if(tourData){
       const newdata=tourData.map((item)=>{
         const {Add}=item
@@ -33,38 +31,22 @@ const Tour=()=>{
   
   useEffect(()=>{
     if(area){
-      console.log("change",area);
       setFilterData(tourData.filter((item)=>item.Add.includes(area)))
       setIsSelect(true)
     }
   },[area])
 
-  const inputHandler=(e:ChangeEvent<HTMLInputElement>)=>{
-    const {value}=e.target
-    if(!value)return
-    setFilterData(tourData.filter((item)=>item.Name.includes(value)))
-    setArea("")
-  }
-  
   return(
     <>
     { isLoading &&  <Loading/>}
     <Wrapper>
-    <TourProvider>
       <Aside>
-        <Session>
-          <SubTitle>請選擇景點</SubTitle>
-          <Select selectList={selectList} setArea={setArea}/>
-        </Session>
-        <Session>
-          <SubTitle>請輸入景點</SubTitle>
-          <Input placeholder="請輸入景點" onChange={inputHandler}/>
-        </Session>
+        <Selector selectList={selectList} setArea={setArea}/>
+        <Inputs setFilterData={setFilterData} setArea={setArea} tourData={tourData} setIsSelect={setIsSelect}/>
       </Aside>
       <Main>
         <Outlet context={{isSelect,area,filterData}}/>
       </Main>
-    </TourProvider>
     </Wrapper>
     </>
   )

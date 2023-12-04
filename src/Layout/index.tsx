@@ -8,7 +8,7 @@ const Layout=()=>{
     <Wrapper>
       <Header/>
       <Container>
-      <Outlet/>
+        <Outlet/>
       </Container>
       <Footer/>
     </Wrapper>
