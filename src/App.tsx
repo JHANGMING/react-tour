@@ -7,6 +7,7 @@ import Footer from "./Layout/Footer"
 import { Container, Wrapper } from "./Layout/styled"
 import { Tourlist } from "./page/Tour/Tourlist"
 import TourDetail from "./page/Tour/TourDetail"
+import Notfind from "./page/Notfind"
 
 
 
@@ -26,6 +27,7 @@ function App() {
                 <Route index element={<Tourlist />} />
                 <Route path=":Id" element={<TourDetail />} />
               </Route>
+              <Route path="*" element={<Notfind/>}/>
             </Route>
           </Routes>
         </Container>
