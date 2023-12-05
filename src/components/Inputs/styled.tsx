@@ -6,7 +6,7 @@ export const StyleInput = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  width: 80%;
+  width: 93%;
 
   &:focus {
     border-color: blue;

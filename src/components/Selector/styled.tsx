@@ -6,7 +6,7 @@ export const StyledSelect = styled.select`
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
-  width: 85%;
+  width: 100%;
   cursor: pointer;
 
   &:focus {

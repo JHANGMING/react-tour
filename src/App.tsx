@@ -2,15 +2,13 @@ import { Routes ,Route} from "react-router-dom"
 import Home from "./page/Home"
 import About from "./page/About"
 import Tour from "./page/Tour"
-import Header from "./Layout/Header"
-import Footer from "./Layout/Footer"
-import { Container, Wrapper } from "./Layout/styled"
+import Header from "./components/Layout/Header"
+import Footer from "./components/Layout/Footer"
+import { Container, Wrapper } from "./components/Layout/styled"
 import { Tourlist } from "./page/Tour/Tourlist"
 import TourDetail from "./page/Tour/TourDetail"
 import Notfind from "./page/Notfind"
-
-
-
+import { TourProvider } from "./TourStore/TourReducer"
 
 
 function App() {
@@ -19,6 +17,7 @@ function App() {
     <Wrapper>
         <Header/>
         <Container>
+        <TourProvider>
           <Routes>
             <Route >
               <Route path="/" element={<Home/>}/>
@@ -30,6 +29,7 @@ function App() {
               <Route path="*" element={<Notfind/>}/>
             </Route>
           </Routes>
+        </TourProvider>
         </Container>
         <Footer/>
     </Wrapper>

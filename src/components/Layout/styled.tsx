@@ -5,9 +5,12 @@ export const Wrapper=styled.div`
   flex-direction: column;
   min-height: 100dvh;
   background-color: #F2F1DE;
+  
 `;
 
 export const Container=styled.div`
+  padding: 65px 0px;
+  margin: 0 auto;
+  width: 1200px;
   flex-grow: 1;
-  padding: 80px 60px;
 `;

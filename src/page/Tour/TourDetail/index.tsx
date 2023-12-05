@@ -1,12 +1,13 @@
-import { useNavigate, useOutletContext, useParams } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import { Desc, Img, StyleButton, Title, Wrapper } from "./styled";
-import { OutletContextType } from "../Tourlist/data";
+import { useTour } from "../../../TourStore/TourReducer";
 
 
 const TourDetail=()=>{
   const {Id}=useParams<{ Id: string }>()
+
   const navigate=useNavigate();
-  const {filterData}=useOutletContext<OutletContextType>()
+  const {filterData}=useTour()
   const filter=filterData?.find((item)=>item.Id===Id)
 
   return(

@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Wrapper=styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+
 `;
 
 export const ImgWrapper=styled.div`
@@ -29,26 +29,48 @@ export const Card=styled.ul`
   gap: 16px;
 `
 export const Carditem=styled.li`
-  border: 2px solid #fff;
+  border: 2px solid #666666;
   border-radius: 10px;
-  width: 350px;
-  cursor: pointer;
+  width: 400px;
+  height: 150px;
   overflow: hidden;
+  display: flex;
+  &:hover{
+    margin-top: -10px;
+    transition: 0.5s;
+    border: 2px solid #a10b0b;
+  }
 `
 export const Cardimg=styled.img`
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
-  width: 100%;
-  height: 200px;
-  
+  width: 30%;
   &:hover{
     transform: scale(1.2);
     transition: 0.5s; 
   }
 `
+export const CardContainer=styled.div`
+  display: flex;
+  flex-direction :column ;
+  justify-content: space-between;
+  padding: 30px 10px 0 20px;
+  width: 70%;
+`
 export const CardTitle=styled.h3`
   font-size: 24px;
-  text-align: center;
   color:gray;
-  padding: 30px 0 20px 0; 
+`
+export const CardButton=styled.button`
+  font-size: 16px;
+  border-radius: 20px;
+  color:gray;
+  width: 100px;
+  align-self: flex-end;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  &:hover{
+    background-color: #000;
+    color: #fff;
+  }
 `
