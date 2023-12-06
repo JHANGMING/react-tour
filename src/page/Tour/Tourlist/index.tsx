@@ -1,11 +1,11 @@
-import { useNavigate, useOutletContext } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import { Imgkaohsiung,Imgkaohsiung2} from "../../../util/Img"
 import { Title } from "../styled"
-import { Card, Img,Carditem, Cardimg, CardTitle, Wrapper, ImgWrapper } from "./styled"
-import { OutletContextType } from "./data"
+import { Card, Img,Carditem, Cardimg, CardTitle, Wrapper, ImgWrapper, CardButton, CardContainer } from "./styled"
+import { useTour } from "../../../TourStore/TourReducer"
 
 export const Tourlist=()=>{
-  const {isSelect,area,filterData}=useOutletContext<OutletContextType>()
+  const {isSelect,filterData,area}=useTour()
   const navigate=useNavigate();
   const cardhandler=(id: number | string)=>{
     navigate(`/tour/${id}`)
@@ -19,9 +19,12 @@ export const Tourlist=()=>{
         {filterData.map((item)=>{
           const {Id,Name,Picture1}=item
           return(
-            <Carditem key={Id} onClick={()=>cardhandler(Id)}>
+            <Carditem key={Id} >
               <Cardimg src={Picture1}/>
-              <CardTitle>{Name}</CardTitle>
+              <CardContainer>
+                <CardTitle>{Name}</CardTitle>
+                <CardButton type="button" onClick={()=>cardhandler(Id)}>詳情資訊</CardButton>
+              </CardContainer>
             </Carditem>
           )
         })}

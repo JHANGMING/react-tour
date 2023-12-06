@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Wrapper=styled.div`
   display: flex;
-  gap:20px;
+  justify-content: space-between;
+  gap:40px;
 `;
 
 export const Aside=styled.div`
@@ -26,24 +27,6 @@ export const SubTitle=styled.h3`
   font-size: 28px;
   margin-bottom: 20px;
 `
-
-export const Input = styled.input`
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  width: 80%;
-
-  &:focus {
-    border-color: blue;
-    outline: none;
-  }
-
-  &::placeholder {
-    color: #888;
-  }
-
-`;
 
 
 export const Img=styled.img`

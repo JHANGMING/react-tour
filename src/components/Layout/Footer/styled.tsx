@@ -6,6 +6,7 @@ export const Wrapper=styled.div`
   text-align: center;
 
   justify-self: flex-end;
+
   `;
 
 export const Title=styled.p`
