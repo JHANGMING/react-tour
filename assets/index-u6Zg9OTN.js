@@ -310,9 +310,7 @@ Valid keys: `+JSON.stringify(Object.keys(P),null,"  "));var ne=ve(L,Y,F,y,E+"."+
   background-color: #999999;
   padding: 20px 40px;
   text-align: center;
-
   justify-self: flex-end;
-
   `,my=W.p`
   font-size: 30px;
 `,vy=()=>T.jsx(hy,{children:T.jsx(my,{children:"高雄旅遊網footer"})}),yy=W.div`
@@ -388,7 +386,7 @@ Valid keys: `+JSON.stringify(Object.keys(P),null,"  "));var ne=ve(L,Y,F,y,E+"."+
     background-color: #000;
     color: #fff;
   }
-`,Ty=()=>{const{isSelect:e,filterData:t,area:n}=ro(),r=rr(),o=i=>{r(`/tour/${i}`)};return T.jsx(T.Fragment,{children:e?T.jsxs(T.Fragment,{children:[T.jsx(rc,{children:n}),T.jsx(xy,{children:t.map(i=>{const{Id:l,Name:u,Picture1:a}=i;return T.jsxs(ky,{children:[T.jsx(Cy,{src:a}),T.jsxs(Ey,{children:[T.jsx(Py,{children:u}),T.jsx(_y,{type:"button",onClick:()=>o(l),children:"詳情資訊"})]})]},l)})})]}):T.jsxs(wy,{children:[T.jsx(rc,{children:"歡迎來到高雄景點"}),T.jsxs(Sy,{children:[T.jsx(oc,{src:Um}),T.jsx(oc,{src:Vm})]})]})})},Ny=W.div`
+`,Ty=()=>{const{isSelect:e,filterData:t,area:n}=ro(),r=rr(),o=i=>{r(`/tour/${i}`)};return T.jsx(T.Fragment,{children:e?T.jsxs(T.Fragment,{children:[T.jsx(rc,{children:n}),T.jsx(xy,{children:t.map(({Id:i,Name:l,Picture1:u})=>T.jsxs(ky,{children:[T.jsx(Cy,{src:u}),T.jsxs(Ey,{children:[T.jsx(Py,{children:l}),T.jsx(_y,{type:"button",onClick:()=>o(i),children:"詳情資訊"})]})]},i))})]}):T.jsxs(wy,{children:[T.jsx(rc,{children:"歡迎來到高雄景點"}),T.jsxs(Sy,{children:[T.jsx(oc,{src:Um}),T.jsx(oc,{src:Vm})]})]})})},Ny=W.div`
   display: flex;
   flex-direction: column;
   align-items: center;
