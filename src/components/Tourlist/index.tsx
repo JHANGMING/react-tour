@@ -1,8 +1,8 @@
 import { useNavigate} from "react-router-dom"
-import { Imgkaohsiung,Imgkaohsiung2} from "../../../util/Img"
-import { Title } from "../styled"
+import { Imgkaohsiung,Imgkaohsiung2} from "../../util/Img"
+import { Title } from "../../page/Tour/styled"
 import { Card, Img,Carditem, Cardimg, CardTitle, Wrapper, ImgWrapper, CardButton, CardContainer } from "./styled"
-import { useTour } from "../../../TourStore/TourReducer"
+import { useTour } from "../../TourStore/TourReducer"
 
 export const Tourlist=()=>{
   const {isSelect,filterData,area}=useTour()
@@ -16,9 +16,7 @@ export const Tourlist=()=>{
     <>
     <Title>{area}</Title>
       <Card>
-        {filterData.map((item)=>{
-          const {Id,Name,Picture1}=item
-          return(
+        {filterData.map(({Id,Name,Picture1})=>(
             <Carditem key={Id} >
               <Cardimg src={Picture1}/>
               <CardContainer>
@@ -26,8 +24,7 @@ export const Tourlist=()=>{
                 <CardButton type="button" onClick={()=>cardhandler(Id)}>詳情資訊</CardButton>
               </CardContainer>
             </Carditem>
-          )
-        })}
+        ))}
       </Card>
     </>
     :
@@ -39,7 +36,6 @@ export const Tourlist=()=>{
     </ImgWrapper>
     </Wrapper>
     }
-    
     </>
   )
 }

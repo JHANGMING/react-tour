@@ -1,6 +1,6 @@
 import { useNavigate,useParams } from "react-router-dom";
 import { Desc, Img, StyleButton, Title, Wrapper } from "./styled";
-import { useTour } from "../../../TourStore/TourReducer";
+import { useTour } from "../../TourStore/TourReducer";
 
 
 const TourDetail=()=>{

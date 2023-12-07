@@ -5,9 +5,9 @@ import Tour from "./page/Tour"
 import Header from "./components/Layout/Header"
 import Footer from "./components/Layout/Footer"
 import { Container, Wrapper } from "./components/Layout/styled"
-import { Tourlist } from "./page/Tour/Tourlist"
-import TourDetail from "./page/Tour/TourDetail"
-import Notfind from "./page/Notfind"
+import { Tourlist } from "./components/Tourlist"
+import TourDetail from "./components/TourDetail"
+import Notfind from "./components/Notfind"
 import { TourProvider } from "./TourStore/TourReducer"
 
 
